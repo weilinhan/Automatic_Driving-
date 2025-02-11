@@ -1,0 +1,22 @@
+sign_detection:
+  ros__parameters:
+    # node parameters
+    update_frequency: 60.0
+    ignore_state: false # whether to detect signs regardless of state
+
+    # debug parameters
+    debug_level: 0 # 0 = no logging, 1-X increments verbosity of log
+    show_images: false # whether to show each processed frame with results
+    save_images: false # whether to save each processed frame with results
+
+    # yolo parameters
+    model_file: "src/psaf_sign_detection/model/yolov5-7signs.onnx" # path to the .onnx of the model to use, relative to node launch dir. UPDATE sign_id.hpp IF YOU CHANGE CLASSES!
+    classes_file: "src/psaf_sign_detection/model/classes.txt" # path to the file containing the classes, relative to node launch dir
+    confidence_threshold: 0.60 # limit confidence score of detection, if lower than this detection is not considered
+    class_threshold: 0.5 # limit confidence of maximum class match, if lower than this no class is assigned to detection
+    nms_threshold: 0.4 # threshold for filtering out multiple boxes
+
+    # behaviour parameters
+    allow_sign_redetection: true # whether to allow a sign to be detected again after lifteime is over
+    sign_lifetime: 10000 # lifetime of signs in milliseconds if redetection is enabled
+    trigger_distance: 100.0 # distance at which a sign will be published

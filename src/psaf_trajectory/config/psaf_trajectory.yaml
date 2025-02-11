@@ -1,0 +1,37 @@
+trajectory:
+  ros__parameters:
+    # node parameters
+    node_update_frequency: 60.0 # sleep in ms between calls of this nodes update functionv 60.0 or 180.0
+    ignore_state: false # whether to generate trajectories regardless of state
+
+    # debugging parameters
+    debug_output: false # enable debug logging, only log errors if false
+    show_images: false # enable realtime images of generated trajectory
+    save_images: false # whether to save generated images to files, will also work if show_images is set to false
+
+    # general trajectory parameters
+    left_lane_offset: -53.75 # offset applied to lane markings for trajectory calculation (in cm)
+    center_lane_offset: -21.0 # offset applied to lane markings for trajectory calculation (in cm)
+    right_lane_offset: 21.0 # offset applied to lane markings for trajectory calculation (in cm)
+    min_lane_point_count: 3 # minimum point count for lane markings to be considered in trajectory calculation
+    min_vec_length: 1e-6 # minimum length of a connection vector between two points to be considered in trajectory calculation
+
+    # car coordinate transformation parameters
+    rotation_11: 0.0094 # components of rotation matrices
+    rotation_12: -0.3280
+    rotation_21: -0.2988
+    rotation_22: -0.0066
+    translation_1: 182.9519 # components of translation matrices
+    translation_2: 75.9048
+
+    # kalman filter for trajectory smoothing parameters (ask @sven.vollstädt for details)
+    enable_kalman: true # whether to enable kalman filtering of lanes before calculating a trajectory or not
+    process_noise_coefficient: 0.1
+    measurement_noise_coefficient_x: 50.0
+    measurement_noise_coefficient_y: 50.0
+    state_start_xp: 10.0 # initial speed for model
+    state_start_yp: 0.0
+    state_start_xpp: 0.0 # initial acceleration for model
+    state_start_ypp: 0.0
+    max_error_point_distance: 40.0 # max distance of mesaured point to expected point, if distance is larger point is ignored
+

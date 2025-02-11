@@ -1,0 +1,15 @@
+lane_detection:
+  ros__parameters:
+    # node parameters
+    update_frequency: 60.0
+
+    # debug parameters
+    debug_output: false # whether to enable debug outputs or not
+    show_images: false # whether to show generated images or not, works regardless of debug
+    save_images: false # whether to save generated images, works regardless of debug
+
+    # algorithm parameters
+    sliding_window_width: 45
+    sliding_window_height: 30
+    binarizer_block_size: 125 # the block size of cv::adaptiveThreshold used to binarize the image
+    binarizer_c: -58.0 # constat that is subtracted from sum of neighbourhood pixles in cv::adaptiveThreshold

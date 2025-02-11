@@ -1,0 +1,20 @@
+controller:
+  ros__parameters:
+    # node parameters
+    update_frequency: 60.0
+    ignore_state: false # whether to generate drive regardless of state
+
+    # debug parameters
+    debug_output: false # whether to enable verboose debug output
+    show_images: false # enable realtime plot
+    save_images: false # whether to save plots to disk, works regardless of plot
+
+    # driving parameters
+    lookahead_distance: 4.0 # lookahead distance in multiples of m_wheel_base
+    target_speed: 90 # target speed of the car in cm/s
+    use_regulation: false # whether to use pid or fixed speed
+    # note: target speed 130 seems to be the for decent driving, use 110 in demo for ~17s (fixed speeds not pid)
+
+    # sign parameters
+    enable_signs: true # whether to react to published signs or not
+    sign_timeout: 3000 # the time in ms after which a sign is not processed anymore

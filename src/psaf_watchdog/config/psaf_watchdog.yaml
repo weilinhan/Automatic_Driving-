@@ -1,0 +1,12 @@
+watchdog:
+  ros__parameters:
+    # node parameters
+    update_frequency: 30.0
+
+    # debug parameters
+    debug_output: false # wheter to enable debug messages or not
+
+    # sensor parameters
+    sensor_min_threshold: 0.02 # minimum value of the sensor for it to be considered, only used if there is no threshold in msg
+    sensor_max_threshold: 0.7 # maximum value of the sensor for it to be considered, only used if there is no threshold in msg
+    stop_distance: 0.2 # distance in meters at which an error is publsihed

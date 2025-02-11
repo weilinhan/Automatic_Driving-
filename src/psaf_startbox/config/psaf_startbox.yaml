@@ -1,0 +1,9 @@
+startbox:
+  ros__parameters:
+    # node parameters
+    update_frequency: 30.0
+
+    # detection parameters
+    ignore_qr: true # whether to ignore qr code on the startbox
+    ignore_distance: false # whether to ignore the distance sensor values
+    trigger_distance: 0.4 # distance in meters at which the start box is considered to be open
